@@ -1,0 +1,29 @@
+<mat-toolbar color="primary">
+    <span routerLink="/">Guest room booking</span>
+</mat-toolbar>
+<div class="content">
+    <mat-card class="mat-elevation-z8 p-2">
+        <mat-card-content class="p-2">
+            <form [formGroup]="registerForm" (ngSubmit)="registerSubmit()">
+                <h4 class="txt-center">Register Customer</h4>
+                <div class="form-group p-2" >
+                  <label>Email Address</label><span class="red"> *</span>
+                  <input type="email" class="form-control"  placeholder="Email Address" formControlName="emailId">
+                  <div class="red" *ngIf="(submitted || emailId.touched) && emailId.invalid ">
+                    Required Field!!
+                </div>
+                </div>
+                <div class="form-group p-2">
+                    <label>Phone Number</label><span class="red"> *</span>
+                    <input type="email" class="form-control" placeholder="Phone Number" formControlName="phoneNumber">
+                    <div class="red" *ngIf="(submitted || phoneNumber.touched) && phoneNumber.invalid ">
+                        Required Field!!
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button mat-raised-button color="primary" class="col">Register</button>
+                </div>
+              </form>
+        </mat-card-content>
+    </mat-card>
+</div>

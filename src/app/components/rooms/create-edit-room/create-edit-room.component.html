@@ -1,0 +1,65 @@
+<div class="content">
+    <span>
+        <button mat-fab color="primary" aria-label="Example icon button with a home icon">
+            <mat-icon>{{ !id ? "add" : "edit" }}</mat-icon>
+        </button>
+    </span>
+    <span> {{ !id ? "Create" : "Edit" }} room</span>
+</div><br>
+<mat-card class="p-0">
+    <mat-card-content class="p-2">
+        <div>
+            <div  class="px-1">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Title</mat-label>
+                    <input matInput placeholder="Title">
+                </mat-form-field>
+            </div>
+            <div  class="px-1">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Description</mat-label>
+                    <input matInput placeholder="Description" >
+                </mat-form-field>
+            </div>
+            <div  class="px-1">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Location</mat-label>
+                    <input matInput placeholder="Location" >
+                </mat-form-field>
+            </div>
+            <div  class="px-1">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Address</mat-label>
+                    <input matInput placeholder="Address" >
+                </mat-form-field>
+            </div>
+            <div  class="px-1">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Min booking days</mat-label>
+                    <input matInput placeholder="Min booking days" >
+                </mat-form-field>
+            </div>
+            <div  class="px-1">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Max booking days</mat-label>
+                    <input matInput placeholder="Max booking days" >
+                </mat-form-field>
+            </div>
+            <div class="px-1">
+                <mat-form-field appearance="outline" class="w-100">
+                    <mat-label>Rent amount</mat-label>
+                    <input matInput placeholder="Rent amount" >
+                </mat-form-field>
+            </div>
+            <div class="form-group">
+                <label>Image</label>  <span class="red"> *(upto 512KB)</span>
+                <input type='file' id="imageUpload" accept="image/*" class="form-control"
+                #imageInput (change)="uploadFile($event)" />
+              </div>
+        </div> 
+        <div class="txt-center"> 
+            <button mat-flat-button color="primary"><mat-icon>{{ !id ? "add" : "save" }} </mat-icon> {{ !id ? "Create" : "Save Changes" }} </button>&nbsp;
+            <button mat-flat-button color="primary">Cancel</button>
+          </div>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,55 @@
+<div class="content">
+    <span>
+        <button mat-fab color="primary" aria-label="Example icon button with a home icon">
+            <mat-icon>home</mat-icon>
+        </button>
+    </span>
+    <span> Rooms</span>
+</div><br>
+<div class="m-3">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+        <!-- Title Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+          <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+        </ng-container>
+      
+        <!-- Description Column -->
+        <ng-container matColumnDef="description">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Description </th>
+          <td mat-cell *matCellDef="let element"> {{element.description}} </td>
+        </ng-container>
+
+        <!-- Min Booking Column -->
+        <ng-container matColumnDef="minBooking">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header> Min Booking </th>
+          <td mat-cell *matCellDef="let element">{{element.minBooking}}</td>
+        </ng-container>
+
+                <!-- Max Booking Column -->
+                <ng-container matColumnDef="maxBooking">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Max Booking </th>
+                    <td mat-cell *matCellDef="let element">{{element.maxBooking}}</td>
+                  </ng-container>
+
+                          <!-- Rent Column -->
+        <ng-container matColumnDef="rent">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Rent </th>
+            <td mat-cell *matCellDef="let element">{{element.rent}}</td>
+          </ng-container>
+
+        <!-- Actions Column -->
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef> Actions </th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-flat-button color="primary" [routerLink]="['/rooms/edit',element.id]"><mat-icon>edit</mat-icon> Edit</button>&nbsp;
+                <button mat-flat-button color="warn" (click)="deleteRoom()"><mat-icon>delete</mat-icon> Delete</button>
+            </td>
+          </ng-container>          
+      
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[10, 20]" showFirstLastButtons></mat-paginator>
+</div>

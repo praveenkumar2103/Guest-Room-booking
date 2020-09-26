@@ -1,0 +1,14 @@
+<div class="row m-3">
+    <div class="col-10" *ngFor="let room of rooms">
+        <mat-card class="p-2">
+            <mat-card-content class="p-2">
+                <img src="image1">
+                <h4>{{room.title}}</h4>
+                <p>{{room.description}}</p>
+                <p><strong>Min Booking : </strong>{{room.minBooking}}</p>
+                <p><strong>Max Booking :</strong> {{room.maxBooking}}</p>
+                <p><strong>Rent</strong> : {{room.rent}}</p>
+            </mat-card-content>
+        </mat-card> <br>
+    </div>
+</div>

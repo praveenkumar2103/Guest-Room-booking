@@ -1,0 +1,71 @@
+<mat-sidenav-container class="example-container" >
+    <mat-sidenav  #sidenav [opened]="sidenavOpen" [mode]="sidenavOpen ? 'side' : 'over'" class="account-sidenav" perfectScrollbar>
+        <div class="txt-center m-3">
+            <h5 routerLink="/">Guest room booking</h5>
+        </div>
+        <div class="divider"></div>
+        <mat-nav-list>
+            <mat-list-item>
+                <a matLine><i class="fa fa-user-circle" aria-hidden="true"> </i> Profile</a>
+            </mat-list-item>
+            <mat-list-item>
+                <a matLine [routerLink]="['/rooms']"><i class="fa fa-list" aria-hidden="true"> </i> Rooms</a>
+            </mat-list-item>
+            <mat-list-item>
+                <a matLine [routerLink]="['/rooms/create']"><i class="fa fa-plus-circle" aria-hidden="true"> </i> Create room</a>
+            </mat-list-item>
+            <mat-list-item>
+                <a matLine><i class="fa fa-commenting-o" aria-hidden="true"> </i> Chats</a>
+            </mat-list-item>
+            <mat-list-item>
+                <a matLine><i class="fa fa-cog" aria-hidden="true"></i> Settings</a>
+            </mat-list-item>
+            <mat-list-item>
+                <a matLine><i class="fa fa-question-circle" aria-hidden="true"> </i> Help</a>
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div>
+            <mat-toolbar color="primary">
+                <button mat-icon-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>&nbsp;
+                <!-- <span routerLink="/">Guest room booking</span> -->
+                <span class="example-spacer"></span>
+                <span class="example-spacer"></span>
+                <button mat-raised-button  data-toggle="modal" data-target="#exampleModalCenter">REGISTER</button>&nbsp;
+                <button mat-raised-button  [routerLink]="['/auth/signin']"> LOGIN </button>
+            </mat-toolbar>
+            <div>
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+            <div class="container-fluid txt-center">
+                <div class="blue">
+                    <h4 >Register as</h4>
+                </div><br>
+                <div class="row">
+                    <div class="col-md-5 btn btn-outline-dark" [routerLink]="['/auth/register-owner']" data-dismiss="modal">
+                        <h3><i class="fa fa-home" aria-hidden="true"> </i></h3>
+                        <p>Houser owner</p>
+                    </div>
+                    <div class="col-md-5 ml-auto btn btn-outline-dark" [routerLink]="['/auth/register-customer']" data-dismiss="modal">
+                        <h3><i class="fa fa-user-circle" aria-hidden="true"> </i></h3>
+                        <p>Customer</p>
+                    </div>
+                </div>
+            </div>    
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
